@@ -164,7 +164,7 @@ export default function CookieConsent() {
     })
   }, [])
 
-  // Deletes each NON-granted category's third-party cookies (analytics:
+  // Expires each NON-granted category's first-party cookies (analytics:
   // GA4 + Clarity; marketing: Meta Pixel). Called with no argument
   // (Decline All) it deletes every category. Per-category deletion matters
   // under the regional Consent Mode defaults: outside the EEA/UK/CH the
@@ -410,8 +410,6 @@ export default function CookieConsent() {
     // Expire the tracking cookies set on this site's domain when consent
     // is withdrawn. (Cookies that providers set on their own domains —
     // e.g. Meta's `fr` on facebook.com — are out of reach of this origin
-    // and are governed by those providers' own controls.)
-    deleteTrackingCookies()
 
     applyConsent(onlyNecessary)
     setSavedPreferencesBackup(onlyNecessary)
