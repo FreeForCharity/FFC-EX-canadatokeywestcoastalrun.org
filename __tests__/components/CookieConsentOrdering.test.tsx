@@ -1,3 +1,13 @@
+/**
+ * @jest-environment jsdom
+ *
+ * Declared explicitly even though jest.config.js already sets
+ * `testEnvironment: 'jest-environment-jsdom'` globally: this suite reads
+ * window, document and localStorage directly, so the dependency is stated
+ * where it is used rather than inherited silently from a config a future
+ * change could narrow. Matches scriptString.test.tsx, which already does
+ * this.
+ */
 import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 
